@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:pl_learning/screens/LoginScreen.dart';
+import 'package:peer_learning/Login/signin.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -17,9 +17,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   goToLogin() async {
-    await sleep(Duration(seconds: 10));
+    await sleep(Duration(seconds: 15));
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        context, MaterialPageRoute(builder: (context) => SigninPage()));
   }
 
   @override
