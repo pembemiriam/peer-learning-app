@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:peer_learning/screens/LoadingScreen.dart';
 import './Login/signup.dart';
-import 'gender_stats.dart';
+import './Login/signin.dart';
+
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
-      title: 'Gender Stats',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Gender Stats"),
+        debugShowCheckedModeBanner:false,
+        home: LoadingScreen(),
 
-        ),
-
-        body: Center(child: GenderStats()),
-      ),
     );
   }
 }
