@@ -17,7 +17,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   goToLogin() async {
-    await sleep(Duration(seconds: 15));
+    await sleep(Duration(seconds: 20));
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => SigninPage()));
   }

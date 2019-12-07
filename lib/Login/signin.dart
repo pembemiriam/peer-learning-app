@@ -65,6 +65,9 @@ class _SigninPageState extends State<SigninPage> {
 //                            fontSize: 18, fontWeight: FontWeight.normal),
 //                      ),
 //                    ),
+                      SizedBox(
+                        height: 30,
+                      ),
                       Padding(
                         padding: EdgeInsets.only(
                             left: 22, right: 22, top: 16, bottom: 8),
@@ -94,7 +97,9 @@ class _SigninPageState extends State<SigninPage> {
                           ),
                         ),
                       ),
-
+                      SizedBox(
+                        height: 100,
+                      ),
                       Padding(
                         padding: EdgeInsets.only(
                             left: 22, right: 22, top: 16, bottom: 8),
