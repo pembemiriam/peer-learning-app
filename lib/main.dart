@@ -8,11 +8,10 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    debugShowCheckedModeBanner:
-    false;
 
     return MaterialApp(
-      home: LoadingScreen(),
+        debugShowCheckedModeBanner:false,
+        home: LoadingScreen(),
     );
   }
 }

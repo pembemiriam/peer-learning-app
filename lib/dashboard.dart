@@ -26,6 +26,11 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Peer-Learning',
+        style: TextStyle(fontSize: 30.0),),
+      ),
 //      bottomNavigationBar: allDestinations,
       body: currentPage,
       bottomNavigationBar: BottomNavyBar(

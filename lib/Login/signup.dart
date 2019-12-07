@@ -37,7 +37,9 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Peer-Learning"),
+        centerTitle: true,
+        title: Text("Sign Up",
+        style: TextStyle(fontSize: 30.0),),
       ),
       backgroundColor: Colors.white,
       body: Container(
@@ -48,30 +50,36 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(
                 height: 10,
               ),
-              TextField(
-                controller: myController,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(23)),
-                    hintText: 'Your name'),
-                onChanged: getEmail(myController.text),
-              ),
-              TextField(
-                controller: myController,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(23)),
-                    hintText: 'Email'),
-                onChanged: getEmail(myController.text),
-              ), //textArea for email
-              TextField(
-                controller: myController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(23)),
-                  hintText: 'Password',
+              Padding(
+                padding: const EdgeInsets.only( left: 22, right: 22, top: 16, bottom: 8),
+                child: TextField(
+                  controller: myController,
+                  decoration: InputDecoration(
+
+                      hintText: 'Your name'),
+                  onChanged: getEmail(myController.text),
                 ),
-                onChanged: getPassword(myController.text),
+              ),
+              Padding(
+                padding: const EdgeInsets.only( left: 22, right: 22, top: 16, bottom: 8),
+                child: TextField(
+                  controller: myController,
+                  decoration: InputDecoration(
+
+                      hintText: 'Email'),
+                  onChanged: getEmail(myController.text),
+                ),
+              ), //textArea for email
+              Padding(
+                padding: const EdgeInsets.only( left: 22, right: 22, top: 16, bottom: 8),
+                child: TextField(
+                  controller: myController,
+                  decoration: InputDecoration(
+
+                    hintText: 'Password',
+                  ),
+                  onChanged: getPassword(myController.text),
+                ),
               ), //
               // textArea for password
               DropdownButton<String>(
@@ -151,6 +159,7 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         ),
       ),
+      resizeToAvoidBottomInset: false,
     );
   }
 }
