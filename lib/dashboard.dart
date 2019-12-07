@@ -1,5 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
+import './Login/signup.dart';
+import './Login/signin.dart';
+
 
 class Dashboard extends StatefulWidget {
   @override
@@ -32,7 +35,9 @@ class _DashboardState extends State<Dashboard> {
         style: TextStyle(fontSize: 30.0),),
       ),
 //      bottomNavigationBar: allDestinations,
-      body: currentPage,
+      body: new Center(
+        child: _getWidget(),
+      ),
       bottomNavigationBar: BottomNavyBar(
         selectedIndex: _selectedIndex,
         showElevation: true, // use this to remove appBar's elevation
@@ -62,7 +67,32 @@ class _DashboardState extends State<Dashboard> {
               activeColor: Colors.blue),
         ],
       ),
+      resizeToAvoidBottomInset: false,
     );
+  }
+  Widget _getWidget() {
+    switch (_selectedIndex) {
+      case 0:
+        return Container(
+          child: SigninPage(),
+        );
+        break;
+      case 1:
+        return Container(
+          child: SignUpPage(),
+        );
+        break;
+    /*  case 2:
+        return Container(
+          child: ProfilePage(sender: widget.sender),
+        );
+        break; */
+      default:
+        return Container(
+          child: SigninPage(),
+        );
+        break;
+    }
   }
 }
 
