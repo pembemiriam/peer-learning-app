@@ -2,6 +2,14 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import './Login/signup.dart';
 import './Login/signin.dart';
+import './screens/gender_stats.dart';
+import './screens/coding_stats.dart';
+import './screens/find_mentor.dart';
+import './screens/profile.dart';
+
+
+
+
 
 
 class Dashboard extends StatefulWidget {
@@ -29,11 +37,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Peer-Learning',
-        style: TextStyle(fontSize: 30.0),),
-      ),
+
 //      bottomNavigationBar: allDestinations,
       body: new Center(
         child: _getWidget(),
@@ -48,18 +52,18 @@ class _DashboardState extends State<Dashboard> {
         }),
         items: [
           BottomNavyBarItem(
-            icon: Icon(Icons.restore),
-            title: Text('Recent'),
+            icon: Icon(Icons.person),
+            title: Text('Find Mentor'),
             activeColor: Colors.red,
           ),
           BottomNavyBarItem(
-            icon: Icon(Icons.favorite_border),
+            icon: Icon(Icons.people),
             title: Text('Gender Stats'),
             activeColor: Colors.purpleAccent,
           ),
           BottomNavyBarItem(
-              icon: Icon(Icons.school),
-              title: Text('School'),
+              icon: Icon(Icons.code),
+              title: Text('Coding Stats'),
               activeColor: Colors.pink),
           BottomNavyBarItem(
               icon: Icon(Icons.gps_fixed),
@@ -74,22 +78,22 @@ class _DashboardState extends State<Dashboard> {
     switch (_selectedIndex) {
       case 0:
         return Container(
-          child: SigninPage(),
+          child: FindMentor(),
         );
         break;
       case 1:
         return Container(
-          child: SignUpPage(),
+          child: GenderStats(),
         );
         break;
-    /*  case 2:
+      case 2:
         return Container(
-          child: ProfilePage(sender: widget.sender),
+          child: CodingStats(),
         );
-        break; */
+        break;
       default:
         return Container(
-          child: SigninPage(),
+          child: Profile(),
         );
         break;
     }

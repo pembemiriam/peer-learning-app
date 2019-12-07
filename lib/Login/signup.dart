@@ -150,7 +150,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     );
                   });
                 }, // upon login we navigate to the dashboard
-                child: Text("Sign In"),
+                child: Text("Sign Up"),
               ),
               SizedBox(
                 height: 20,
