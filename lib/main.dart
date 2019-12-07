@@ -3,6 +3,7 @@ import 'package:peer_learning/screens/LoadingScreen.dart';
 import './Login/signup.dart';
 import './Login/signin.dart';
 
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner:false,
         home: LoadingScreen(),
+
     );
   }
 }
