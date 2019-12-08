@@ -105,6 +105,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   "C",
                   'C++',
                   "Dart",
+                  'Kotlin',
                   "Python",
                   "JavaScript",
                 ].map((String value) {
