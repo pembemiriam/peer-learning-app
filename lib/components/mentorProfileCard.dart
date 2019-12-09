@@ -27,7 +27,7 @@ class MentorProfileCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             CircleAvatar(
-              radius: _width < _height ? _width / 6 : _height / 6,
+              radius: _width < _height ? _width / 5 : _height / 5,
               backgroundImage: AssetImage('assets/images/Loic.jpg'),
             ),
             Text(
@@ -39,11 +39,11 @@ class MentorProfileCard extends StatelessWidget {
       ));
     }
     return Padding(
-      padding: EdgeInsets.only(top: 80.0),
+      padding: EdgeInsets.only(top: 20.0),
       child: CardSelector(
         cards: widgets,
-        mainCardWidth: 240,
-        mainCardHeight: 150,
+        mainCardWidth: 300,
+        mainCardHeight: 220,
         mainCardPadding: -32,
         cardAnimationDurationMs: 200,
         cardsGap: 24.0,
