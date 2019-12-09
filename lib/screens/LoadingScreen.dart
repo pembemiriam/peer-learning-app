@@ -31,7 +31,6 @@ class _LoadingScreenState extends State<LoadingScreen>
 
     controller.addListener(() {
       setState(() {});
-      print(animation.value);
     });
   }
 
@@ -43,24 +42,29 @@ class _LoadingScreenState extends State<LoadingScreen>
 
   @override
   Widget build(BuildContext context) {
-    return new SplashScreen(
-      seconds: 5,
-      navigateAfterSeconds: SigninPage(),
-      title: Text(
-        'Welcome to Peer Learning',
-        style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+    return Hero(
+      tag: "logo",
+      child: SplashScreen(
+        seconds: 2,
+        navigateAfterSeconds: SigninPage(),
+        title: Text(
+          'Welcome to Peer Learning',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 25.0 * controller.value),
+        ),
+        image: Image.asset(
+          'assets/images/logo.png',
+        ),
+        gradientBackground: new LinearGradient(
+            colors: [Colors.cyan, Colors.blue],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight),
+        backgroundColor: Colors.white,
+        styleTextUnderTheLoader: TextStyle(),
+        photoSize: 70.0 * controller.value,
+        onClick: () => {},
+        loaderColor: Colors.grey,
       ),
-      image: new Image.network(
-          'https://flutter.io/images/catalog-widget-placeholder.png'),
-      gradientBackground: new LinearGradient(
-          colors: [Colors.cyan, Colors.blue],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight),
-      backgroundColor: Colors.white,
-      styleTextUnderTheLoader: new TextStyle(),
-      photoSize: 70.0,
-      onClick: () => print("Flutter Egypt"),
-      loaderColor: Colors.grey,
     );
   }
 }
