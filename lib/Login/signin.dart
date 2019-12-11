@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:peer_learning/dashboard.dart';
@@ -12,7 +13,32 @@ class SigninPage extends StatefulWidget {
   }
 }
 
-class _SigninPageState extends State<SigninPage> {
+class _SigninPageState extends State<SigninPage>
+    with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  Animation animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller =
+        AnimationController(duration: Duration(seconds: 1), vsync: this);
+    animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
+        .animate(controller);
+    controller.forward();
+
+    controller.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _email = new TextEditingController();
   final TextEditingController _password = new TextEditingController();
@@ -23,6 +49,8 @@ class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
     final Map args = ModalRoute.of(context).settings.arguments;
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
 
     return Scaffold(
         appBar: AppBar(
@@ -65,6 +93,20 @@ class _SigninPageState extends State<SigninPage> {
 //                            fontSize: 18, fontWeight: FontWeight.normal),
 //                      ),
 //                    ),
+
+                      Container(
+                        child: Hero(
+                            tag: 'logo',
+                            child: Image.asset('assets/images/logo.png')),
+                        height: _width < _height
+                            ? (_width / 4) * controller.value
+                            : (_height / 4) * controller.value,
+//                        height: 150 * controller.value,
+                        width: 150 * controller.value,
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
                       Padding(
                         padding: EdgeInsets.only(
                             left: 22, right: 22, top: 16, bottom: 8),
@@ -94,7 +136,9 @@ class _SigninPageState extends State<SigninPage> {
                           ),
                         ),
                       ),
-
+                      SizedBox(
+                        height: _height / 22,
+                      ),
                       Padding(
                         padding: EdgeInsets.only(
                             left: 22, right: 22, top: 16, bottom: 8),
