@@ -37,27 +37,31 @@ class _SignUpPageState extends State<SignUpPage>
 
   dynamic myController = TextEditingController();
   bool isSwitched = false;
-  String _email = '';
-  String _password = '';
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _userName = TextEditingController();
+  final TextEditingController _email = new TextEditingController();
+  final TextEditingController _password = new TextEditingController();
 
+  bool _autoValidate = false;
+  bool _loadingVisible = false;
   String _currentValue = "Mentor or Mentee";
 
   String _currentProg = "Programming Language";
 
-  getEmail(value) {
-    setState(() {
-      _email = value;
+//  getEmail(value) {
+//    setState(() {
+//      _email = value;
+//
+//      myController.clear();
+//    });
+//  }
 
-      myController.clear();
-    });
-  }
-
-  getPassword(value) {
-    setState(() {
-      _password = value;
-      myController.clear();
-    });
-  }
+//  getPassword(value) {
+//    setState(() {
+//      _password = value;
+//      myController.clear();
+//    });
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,123 +79,143 @@ class _SignUpPageState extends State<SignUpPage>
       backgroundColor: Colors.white,
       body: Container(
         child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: ListView(
             children: <Widget>[
-              Container(
-                child: Hero(
-                    tag: 'logo', child: Image.asset('assets/images/logo.png')),
-                height: _width < _height
-                    ? (_width / 4) * controller.value
-                    : (_height / 4) * controller.value,
-                width: 100 * controller.value,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 22, right: 22, top: 16, bottom: 8),
-                child: TextField(
-                  controller: myController,
-                  decoration: InputDecoration(hintText: 'Your name'),
-                  onChanged: getEmail(myController.text),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 22, right: 22, top: 16, bottom: 8),
-                child: TextField(
-                  controller: myController,
-                  decoration: InputDecoration(hintText: 'Email'),
-                  onChanged: getEmail(myController.text),
-                ),
-              ), //textArea for email
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 22, right: 22, top: 16, bottom: 8),
-                child: TextField(
-                  controller: myController,
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                  ),
-                  onChanged: getPassword(myController.text),
-                ),
-              ), //
-              // textArea for password
-              DropdownButton<String>(
-                hint: Text(_currentValue),
-                items: <String>[
-                  "Mentor",
-                  'Mentee',
-                ].map((String value) {
-                  return new DropdownMenuItem<String>(
-                    value: value,
-                    child: new Text(value),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _currentValue = value;
-                  });
-                },
-              ),
-              DropdownButton<String>(
-                hint: Text(_currentProg),
-                items: <String>[
-                  "C",
-                  'C++',
-                  "Dart",
-                  'Kotlin',
-                  "Python",
-                  "JavaScript",
-                ].map((String value) {
-                  return new DropdownMenuItem<String>(
-                    value: value,
-                    child: new Text(value),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _currentProg = value;
-                  });
-                },
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text("male"),
-                  Switch(
-                    value: isSwitched,
+                  Container(
+                    child: Hero(
+                        tag: 'logo',
+                        child: Image.asset('assets/images/logo.png')),
+                    height: _width < _height
+                        ? (_width / 4) * controller.value
+                        : (_height / 4) * controller.value,
+                    width: 100 * controller.value,
+                  ),
+                  SizedBox(
+                    height: _width < _height ? _width / 20 : _height / 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 22, right: 22, top: 16, bottom: 8),
+                    child: TextFormField(
+                      autofocus: false,
+                      controller: _userName,
+//                        validator: Validator.validateEmail,
+                      keyboardType: TextInputType.text,
+                      style: TextStyle(fontSize: 18),
+                      decoration: InputDecoration(
+                        labelText: 'Username',
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 22, right: 22, top: 16, bottom: 8),
+                    child: TextFormField(
+                      autofocus: false,
+                      controller: _email,
+//                        validator: Validator.validateEmail,
+                      keyboardType: TextInputType.emailAddress,
+                      style: TextStyle(fontSize: 18),
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                      ),
+                    ),
+                  ), //textArea for email
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 22, right: 22, top: 16, bottom: 8),
+                    child: TextFormField(
+                      autofocus: false,
+                      controller: _password,
+//                        validator: Validator.validatePassword,
+                      obscureText: true,
+                      style: TextStyle(fontSize: 18),
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                      ),
+//                      onChanged: getPassword(myController.text),
+                    ),
+                  ), //
+                  // textArea for password
+                  DropdownButton<String>(
+                    hint: Text(_currentValue),
+                    items: <String>[
+                      "Mentor",
+                      'Mentee',
+                    ].map((String value) {
+                      return new DropdownMenuItem<String>(
+                        value: value,
+                        child: new Text(value),
+                      );
+                    }).toList(),
                     onChanged: (value) {
                       setState(() {
-                        isSwitched = value;
+                        _currentValue = value;
                       });
                     },
-                    activeTrackColor: Colors.lightGreenAccent,
-                    //activeColor: Colors.green,
                   ),
-                  Text('female'),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              RaisedButton(
-                onPressed: () {
-                  setState(() {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Dashboard(),
+                  DropdownButton<String>(
+                    hint: Text(_currentProg),
+                    items: <String>[
+                      "C",
+                      'C++',
+                      "Dart",
+                      'Kotlin',
+                      "Python",
+                      "JavaScript",
+                    ].map((String value) {
+                      return new DropdownMenuItem<String>(
+                        value: value,
+                        child: new Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _currentProg = value;
+                      });
+                    },
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("male"),
+                      Switch(
+                        value: isSwitched,
+                        onChanged: (value) {
+                          setState(() {
+                            isSwitched = value;
+                          });
+                        },
+                        activeTrackColor: Colors.lightGreenAccent,
+                        //activeColor: Colors.green,
                       ),
-                    );
-                  });
-                }, // upon login we navigate to the dashboard
-                child: Text("Sign Up"),
-              ),
-              SizedBox(
-                height: 20,
+                      Text('female'),
+                    ],
+                  ),
+                  SizedBox(
+                    height: _width < _height ? _width / 20 : _height / 20,
+                  ),
+                  RaisedButton(
+                    onPressed: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Dashboard(),
+                          ),
+                        );
+                      });
+                    }, // upon login we navigate to the dashboard
+                    child: Text("Sign Up"),
+                  ),
+                  SizedBox(
+                    height: _width < _height ? _width / 20 : _height / 20,
+                  ),
+                ],
               ),
             ],
           ),
