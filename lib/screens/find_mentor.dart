@@ -14,7 +14,7 @@ class FindMentor extends StatefulWidget {
 
 class FindMentorState extends State<FindMentor> {
   String _progLang = "Dart";
-  String _mentor = "Mariam";
+  String _mentor = "Miriam";
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -149,6 +149,7 @@ class FindMentorState extends State<FindMentor> {
                 ],
               ),
             ],
+
           ),
         ),
       ),

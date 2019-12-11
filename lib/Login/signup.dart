@@ -80,6 +80,7 @@ class _SignUpPageState extends State<SignUpPage>
       body: Container(
         child: SafeArea(
           child: ListView(
+
             children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
