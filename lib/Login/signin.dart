@@ -105,7 +105,7 @@ class _SigninPageState extends State<SigninPage>
                         width: 150 * controller.value,
                       ),
                       SizedBox(
-                        height: 30,
+                        height: _width < _height ? _width / 20 : _height / 20,
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -121,6 +121,7 @@ class _SigninPageState extends State<SigninPage>
                           ),
                         ),
                       ),
+
                       Padding(
                         padding: EdgeInsets.only(
                             left: 22, right: 22, top: 8, bottom: 8),
@@ -137,7 +138,7 @@ class _SigninPageState extends State<SigninPage>
                         ),
                       ),
                       SizedBox(
-                        height: _height / 22,
+                        height: _width < _height ? _width / 20 : _height / 20,
                       ),
                       Padding(
                         padding: EdgeInsets.only(
