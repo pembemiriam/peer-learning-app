@@ -56,93 +56,97 @@ class FindMentorState extends State<FindMentor> {
         child: Padding(
           padding: const EdgeInsets.only(
               top: 5.0, bottom: 10.0, right: 10, left: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: ListView(
             children: <Widget>[
-              MentorProfileCard(),
-              new SizedBox(
-                height: _height / 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      "Choose a Programming Language",
-                      style: TextStyle(fontSize: 15),
-                    ),
+                  MentorProfileCard(),
+                  new SizedBox(
+                    height: _width < _height ? _width / 20 : _height / 20,
                   ),
-                  DropdownButton<String>(
-                    hint: Text(_progLang),
-                    items: <String>[
-                      "C",
-                      'C++',
-                      "Dart",
-                      "Python",
-                      "JavaScript",
-                    ].map((String value) {
-                      return new DropdownMenuItem<String>(
-                        value: value,
-                        child: new Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      setState(() {
-                        _progLang = value;
-                      });
-                    },
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Text(
-                    "Choose a Mentor: ",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                  DropdownButton<String>(
-                    hint: Text(_mentor),
-                    items: <String>[
-                      "Vanessa",
-                      'Shalom',
-                      "Senior",
-                      "Amanda",
-                      "Rudy",
-                      "Noela",
-                      "Loic",
-                    ].map((String value) {
-                      return new DropdownMenuItem<String>(
-                        value: value,
-                        child: new Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      setState(() {
-                        _mentor = value;
-                      });
-                    },
-                  ),
-                ],
-              ),
-              RaisedButton(
-                onPressed: () {
-                  setState(() {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Dashboard(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Flexible(
+                        child: Text(
+                          "Choose a Programming Language",
+                          style: TextStyle(fontSize: 15),
+                        ),
                       ),
-                    );
-                  });
-                }, // upon login we navigate to the dashboard
-                child: Text("Learn"),
-              ),
-              SizedBox(
-                height: 20,
+                      DropdownButton<String>(
+                        hint: Text(_progLang),
+                        items: <String>[
+                          "C",
+                          'C++',
+                          "Dart",
+                          "Python",
+                          "JavaScript",
+                        ].map((String value) {
+                          return new DropdownMenuItem<String>(
+                            value: value,
+                            child: new Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _progLang = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: _width < _height ? _width / 20 : _height / 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text(
+                        "Choose a Mentor: ",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      DropdownButton<String>(
+                        hint: Text(_mentor),
+                        items: <String>[
+                          "Vanessa",
+                          'Shalom',
+                          "Senior",
+                          "Amanda",
+                          "Rudy",
+                          "Noela",
+                          "Loic",
+                        ].map((String value) {
+                          return new DropdownMenuItem<String>(
+                            value: value,
+                            child: new Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _mentor = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  RaisedButton(
+                    onPressed: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Dashboard(),
+                          ),
+                        );
+                      });
+                    }, // upon login we navigate to the dashboard
+                    child: Text("Learn"),
+                  ),
+                  SizedBox(
+                    height: _width < _height ? _width / 20 : _height / 20,
+                  ),
+                ],
               ),
             ],
           ),
