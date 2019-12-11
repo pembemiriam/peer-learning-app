@@ -56,9 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
               elevation: 0.0,
               backgroundColor: Colors.transparent,
             ),
-            drawer: new Drawer(
-              child: new Container(),
-            ),
             backgroundColor: Colors.transparent,
             body: new Center(
               child: ListView(

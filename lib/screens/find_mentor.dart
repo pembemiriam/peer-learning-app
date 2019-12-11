@@ -49,9 +49,7 @@ class FindMentorState extends State<FindMentor> {
 //          List<Item> _getItemListForQuery(String query) { ... }
 //          Widget _buildItemWidget(Item item) { ... }
       ),
-      drawer: Drawer(
-        child: Container(),
-      ),
+      
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(
