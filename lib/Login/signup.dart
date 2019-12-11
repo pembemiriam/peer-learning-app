@@ -74,7 +74,8 @@ class _SignUpPageState extends State<SignUpPage>
       ),
       backgroundColor: Colors.white,
       body: Container(
-        child: SafeArea(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
