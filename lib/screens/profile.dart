@@ -11,6 +11,8 @@ class Profile extends StatefulWidget {
 class ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: MyHomePage(title: 'Profile'),
     );
@@ -31,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
 
-    return new Stack(
+    return Stack(
       children: <Widget>[
         new Container(
           color: Colors.blue,
@@ -59,67 +61,77 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             backgroundColor: Colors.transparent,
             body: new Center(
-              child: new Column(
+              child: ListView(
                 children: <Widget>[
-                  new SizedBox(
-                    height: _height / 22,
-                  ),
-                  new CircleAvatar(
-                    radius: _width < _height ? _width / 4 : _height / 4,
-                    backgroundImage: AssetImage("assets/images/Loic.jpg"),
-                  ),
-                  new SizedBox(
-                    height: _height / 25.0,
-                  ),
-                  new Text(
-                    'Fonkam Loic',
-                    style: new TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: _width / 15,
-                        color: Colors.white),
-                  ),
-                  new Padding(
-                    padding: new EdgeInsets.only(
-                        top: _height / 30, left: _width / 8, right: _width / 8),
-                    child: Text(
-                      'C programmer, Javascript, Dart, CyberScurity Engineer. I am an Ethical Hacker :)',
-                      style: new TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: _width / 25,
-                          color: Colors.white),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  new Divider(
-                    height: _height / 30,
-                    color: Colors.white,
-                  ),
-                  new Row(
+                  Column(
                     children: <Widget>[
-                      rowCell(33, 'POSTS'),
-                      rowCell(66, 'FOLLOWERS'),
-                      rowCell(25, 'FOLLOWING'),
-                    ],
-                  ),
-                  new Divider(height: _height / 30, color: Colors.white),
-                  new Padding(
-                    padding: new EdgeInsets.only(
-                        left: _width / 8, right: _width / 8),
-                    child: new FlatButton(
-                      onPressed: () {},
-                      child: new Container(
-                          child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      new SizedBox(
+                        height: _width < _height ? _width / 20 : _height / 20,
+                      ),
+                      new CircleAvatar(
+                        radius: _width < _height ? _width / 4 : _height / 4,
+                        backgroundImage: AssetImage("assets/images/Loic.jpg"),
+                      ),
+                      new SizedBox(
+                        height: _width < _height ? _width / 20 : _height / 20,
+                      ),
+                      new Text(
+                        'Fonkam Loic',
+                        style: new TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: _width / 15,
+                            color: Colors.white),
+                      ),
+                      new Padding(
+                        padding: new EdgeInsets.only(
+                            top: _height / 30,
+                            left: _width / 8,
+                            right: _width / 8),
+                        child: Text(
+                          'C programmer, Javascript, Dart, CyberScurity Engineer. I am an Ethical Hacker :)',
+                          style: new TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: _width / 25,
+                              color: Colors.white),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      new Divider(
+                        height: _width < _height ? _width / 30 : _height / 30,
+                        color: Colors.white,
+                      ),
+                      new Row(
                         children: <Widget>[
-                          new Icon(Icons.person),
-                          new SizedBox(
-                            width: _width / 50,
-                          ),
-                          new Text('FOLLOW')
+                          rowCell(33, 'POSTS'),
+                          rowCell(66, 'FOLLOWERS'),
+                          rowCell(25, 'FOLLOWING'),
                         ],
-                      )),
-                      color: Colors.blue[50],
-                    ),
+                      ),
+                      new Divider(
+                          height: _width < _height ? _width / 20 : _height / 20,
+                          color: Colors.white),
+                      new Padding(
+                        padding: new EdgeInsets.only(
+                            left: _width / 8, right: _width / 8),
+                        child: new FlatButton(
+                          onPressed: () {},
+                          child: new Container(
+                              child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              new Icon(Icons.person),
+                              new SizedBox(
+                                width: _width < _height
+                                    ? _height / 20
+                                    : _width / 20,
+                              ),
+                              new Text('FOLLOW')
+                            ],
+                          )),
+                          color: Colors.blue[50],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
