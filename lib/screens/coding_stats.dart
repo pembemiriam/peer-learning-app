@@ -13,6 +13,8 @@ class CodingStats extends StatefulWidget {
 class CodingStatsState extends State<CodingStats> {
   @override
   Widget build(BuildContext context) {
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -24,13 +26,20 @@ class CodingStatsState extends State<CodingStats> {
       ),
       body: SafeArea(
         child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
             children: <Widget>[
-              Container(
-                  height: 400,
-                  width: double.infinity,
-                  child: DonutAutoLabelChart.withSampleData()),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                    height: 80,
+                  ),
+                  Container(
+                      height: 400,
+                      width: double.infinity,
+                      child: DonutAutoLabelChart.withSampleData()),
+                ],
+              ),
             ],
           ),
         ),
