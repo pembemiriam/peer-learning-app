@@ -1,5 +1,6 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:peer_learning/services/authentication.dart';
 import './Login/signup.dart';
 import './Login/signin.dart';
 import './screens/gender_stats.dart';
@@ -13,6 +14,14 @@ import './screens/profile.dart';
 
 
 class Dashboard extends StatefulWidget {
+
+  final BaseAuth auth;
+  final VoidCallback logoutCallback;
+  final String userId;
+
+  Dashboard({Key key, this.auth, this.userId, this.logoutCallback})
+      : super(key: key);
+
   @override
   _DashboardState createState() => _DashboardState();
 }
@@ -83,7 +92,11 @@ class _DashboardState extends State<Dashboard> {
         break;
       case 1:
         return Container(
-          child: GenderStats(),
+          child: GenderStats(
+            userId: widget.userId,
+            auth: widget.auth,
+            logoutCallback: widget.logoutCallback
+          ),
         );
         break;
       case 2:

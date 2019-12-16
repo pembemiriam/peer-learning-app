@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "754701082386",
+    "firebase_url": "https://epl1-d35e2.firebaseio.com",
+    "project_id": "epl1-d35e2",
+    "storage_bucket": "epl1-d35e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754701082386:android:faae692032d5970600ddcb",
+        "android_client_info": {
+          "package_name": "com.devfestbuea.peer_learning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754701082386-ni1mel0fckeivs2a1l754eogbdldrt66.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL34BabRM7TvVPB4yu2eXXJ8jNbaFehLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754701082386-ni1mel0fckeivs2a1l754eogbdldrt66.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754701082386:android:ca2feb215100a3c700ddcb",
+        "android_client_info": {
+          "package_name": "com.devfestbuea.pl_meetup_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754701082386-ni1mel0fckeivs2a1l754eogbdldrt66.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL34BabRM7TvVPB4yu2eXXJ8jNbaFehLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754701082386-ni1mel0fckeivs2a1l754eogbdldrt66.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

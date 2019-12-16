@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:peer_learning/screens/root_page.dart';
+import 'package:peer_learning/services/authentication.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 import 'package:flutter/material.dart';
@@ -46,7 +48,7 @@ class _LoadingScreenState extends State<LoadingScreen>
       tag: "logo",
       child: SplashScreen(
         seconds: 2,
-        navigateAfterSeconds: SigninPage(),
+        navigateAfterSeconds: RootPage(auth: new Auth()),
         title: Text(
           'Welcome to Peer Learning',
           style: TextStyle(
