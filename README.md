@@ -1,6 +1,6 @@
 # peer_learning
 
-Peer learning app will help bring together mentors and mentees in local communities to help mentor new developers learn the languages of their choice and impove community bounding.
+Peer learning app help bring together mentors and mentees in local communities. Using this app, new developers will be able to connect with mentors while they learn the programming languages and technologies of their choice.
 
 ## Getting Started
 A few resources to get you started if this is your first Flutter project:
