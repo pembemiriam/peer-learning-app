@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "735471043130",
+    "firebase_url": "https://peer-learning-ad0c1.firebaseio.com",
+    "project_id": "peer-learning-ad0c1",
+    "storage_bucket": "peer-learning-ad0c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735471043130:android:2e758e740125f8cbabeb03",
+        "android_client_info": {
+          "package_name": "com.devfestbuea.peer_learning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735471043130-rbkbs8pcjnj2bs2kjbdu5p0rdfadlcts.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.devfestbuea.peer_learning",
+            "certificate_hash": "f6eb123049d945d59288c7f1e4f01766ce772bc9"
+          }
+        },
+        {
+          "client_id": "735471043130-5urgk5qrou8p9p5mpct3af7di3g8n2vo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKkOEnii0McLQwZyY4Q5vqQqfRHXukX-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735471043130-5urgk5qrou8p9p5mpct3af7di3g8n2vo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
