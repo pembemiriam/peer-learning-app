@@ -174,6 +174,7 @@ class _SigninPageState extends State<SigninPage>
                                       password: _password.text);
                                 } catch (e) {
                                   print(e);
+                                   _changeLoadingVisible();
                                   return showDialog(
                                       context: context,
                                       builder: (BuildContext context) {
