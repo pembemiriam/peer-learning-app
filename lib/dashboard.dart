@@ -7,12 +7,9 @@ import './screens/coding_stats.dart';
 import './screens/find_mentor.dart';
 import './screens/profile.dart';
 
-
-
-
-
-
 class Dashboard extends StatefulWidget {
+  final String username;
+  Dashboard({this.username});
   @override
   _DashboardState createState() => _DashboardState();
 }
@@ -37,7 +34,6 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
 //      bottomNavigationBar: allDestinations,
       body: new Center(
         child: _getWidget(),
@@ -74,6 +70,7 @@ class _DashboardState extends State<Dashboard> {
       resizeToAvoidBottomInset: false,
     );
   }
+
   Widget _getWidget() {
     switch (_selectedIndex) {
       case 0:
